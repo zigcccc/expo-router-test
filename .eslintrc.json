@@ -1,0 +1,140 @@
+{
+  "env": {
+    "es6": true,
+    "node": true,
+    "react-native/react-native": true,
+    "jest": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 13,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended"
+  ],
+  "plugins": ["react", "react-native", "prettier", "import", "unused-imports"],
+  "rules": {
+    "prettier/prettier": "error",
+    "no-mixed-spaces-and-tabs": ["warn", "smart-tabs"],
+    "no-unused-vars": "off",
+    "no-console": 0,
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "object-curly-spacing": ["error", "always"],
+    "react/react-in-jsx-scope": "off",
+    "react-native/no-unused-styles": 2,
+    "react/jsx-uses-vars": 2,
+    "react/prop-types": 0,
+    "react/display-name": 0,
+    "@typescript-eslint/ban-ts-comment": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
+    "unused-imports/no-unused-imports": "error",
+    "import/no-named-as-default": 0,
+    "import/no-unresolved": [2, { "commonjs": true, "amd": true }],
+    "import/named": 2,
+    "import/namespace": 2,
+    "import/no-cycle": ["warn", { "maxDepth": 5 }],
+    "import/default": 2,
+    "import/export": 2,
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always-and-inside-groups",
+        "alphabetize": {
+          "caseInsensitive": true,
+          "order": "asc"
+        },
+        "groups": [["builtin", "external"], ["internal"], ["parent"], ["sibling", "index", "unknown"]],
+        "pathGroups": [
+          {
+            "pattern": "app/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "components/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "helpers/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "hooks/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "services/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "types/**",
+            "group": "internal",
+            "position": "after"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin", "external", "parent", "sibling", "index", "unknown"]
+      }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "name": "react-use",
+        "message": "Import the specific function from react-use instead of the whole library (e.g. import useTimeout from 'react-use/lib/useTimeout')"
+      }
+    ]
+  },
+  "overrides": [
+    {
+      // enable the rule specifically for TypeScript files
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/no-empty-function": ["error"],
+        "@typescript-eslint/no-var-requires": ["error"]
+      }
+    }
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": "."
+      },
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/ignore": ["react-native"],
+    "react": {
+      "version": "18.1.0"
+    }
+  }
+}
